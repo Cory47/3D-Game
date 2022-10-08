@@ -17,7 +17,7 @@ func _ready() -> void:
 	
 	if fast_close:
 		print("** Fast Close enabled in the 'L_Main.gd' script **")
-		print("** 'Esc' to close 'Shift + F1' to release mouse **")
+		print("** 'Esc' to close 'Ctrl' to release mouse **")
 	
 	set_process_input(fast_close)
 
