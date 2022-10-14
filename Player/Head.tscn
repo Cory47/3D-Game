@@ -9,3 +9,10 @@ script = ExtResource( 1 )
 [node name="Camera" type="Camera" parent="."]
 current = true
 fov = 75.0
+
+[node name="RayCast" type="RayCast" parent="Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -5 )
+
+[node name="HoldPosition" type="Spatial" parent="Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.42851 )
