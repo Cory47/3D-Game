@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Main/Geometry/Floor.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Levels/Main/Geometry/Wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/Main/Geometry/Cube.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/Main/TimeElapsed.gd" type="Script" id=7]
+[ext_resource path="res://Interactable.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Torch.tscn" type="PackedScene" id=9]
+[ext_resource path="res://TorchPuzzle.tscn" type="PackedScene" id=10]
 
 [node name="L_Main" type="Spatial"]
 script = ExtResource( 4 )
@@ -112,6 +115,9 @@ transform = Transform( -3.5, -0.216506, -3.01992e-07, -6.06218, 0.125, -1.51421e
 [node name="TooSteep2" parent="ArenaGeometry" instance=ExtResource( 6 )]
 transform = Transform( 3.5, 0.216506, 0, -6.06218, 0.125, 0, 0, 0, 2, -16.5, 5.5, 8.5 )
 
+[node name="Interactable" parent="ArenaGeometry" instance=ExtResource( 8 )]
+transform = Transform( -0.5, 4.37114e-08, 0, 4.37114e-08, 0.5, 4.37114e-08, 3.82137e-15, 4.37114e-08, -0.5, 1, 0.905767, 11.445 )
+
 [node name="Lighting" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting"]
@@ -180,3 +186,18 @@ text = "Time Elapsed: __ min __ s"
 margin_top = 36.0
 margin_right = 161.0
 margin_bottom = 36.0
+
+[node name="TorchPuzzle" parent="." instance=ExtResource( 10 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4.2558, 12.5046 )
+
+[node name="Torch" parent="TorchPuzzle" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.88592, -63.3445 )
+
+[node name="Torch2" parent="TorchPuzzle" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 13.6727 )
+
+[node name="Torch3" parent="TorchPuzzle" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -38.2626, 6.33235, -17.8308 )
+
+[node name="Torch4" parent="TorchPuzzle" instance=ExtResource( 9 )]
+transform = Transform( 1.19249e-08, 1, 0, 4.37114e-08, -5.21253e-16, -1, -1, 1.19249e-08, -4.37114e-08, 37.4685, 7.56195, -35.979 )
