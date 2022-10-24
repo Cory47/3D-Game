@@ -12,7 +12,7 @@ func _ready():
 
 func getID():
 	return id
-# Receive signal from raycast
+
 func turnOn():
 	isLit = true
 	$OmniLight.show()
@@ -20,6 +20,4 @@ func turnOn():
 func turnOff():
 	isLit = false
 	$OmniLight.hide()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
