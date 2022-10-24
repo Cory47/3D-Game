@@ -15,7 +15,8 @@ var snap := Vector3()
 var up_direction := Vector3.UP
 var stop_on_slope := true
 onready var floor_max_angle: float = deg2rad(45.0)
-var ray_legnth = 1000
+var ray_legnth = -10
+#onready var _raycast := $Head/RayCast
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 onready var gravity = (ProjectSettings.get_setting("physics/3d/default_gravity") 
 		* gravity_multiplier)
@@ -52,16 +53,22 @@ func _physics_process(delta) -> void:
 	velocity = move_and_slide_with_snap(velocity, snap, up_direction, 
 			stop_on_slope, 4, floor_max_angle)
 			
-			
+#	if $RayCast.is_colliding():
+#		print("colliding")
+#	else:
+#		print("no")
+		
 			
 	
 	
 		
-func _input(event):
-	if Input.is_action_just_pressed("interact"):
-		var space_state = get_world().direct_space_state
-		var result = space_state.intersect_ray(Vector3(0.0,0.0,0.0), Vector3(0.0,0.0,-100))
-		print(result)
+#func _input(event):
+#	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
+#		var camera = $Head/Camera
+#		var from = camera.project_ray_origin(event.position)
+#		var to = from + camera.project_ray_normal(event.position) * 1.0
+#
+#		print(to)
 		
 	
 
