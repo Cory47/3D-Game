@@ -9,7 +9,7 @@ func _ready():
 	
 	for i in self.get_children().size():
 		# Adds just the torch child nodes to the array
-		if i.get_filename() == "res://Torch.tscn":
+		if self.get_children()[i].get_filename() == "res://Torch.tscn":
 			self.get_children()[i].id = i
 			array.append(self.get_children()[i])
 			print(i)

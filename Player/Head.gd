@@ -56,12 +56,12 @@ func _physics_process(delta):
 				held_object.collision_mask = 0
 				print(held_object)
 				
-			elif $Camera/RayCast.get_collider().get_filename() == "res://TorchPuzzle.tscn":
-				emit_signal("torch_start")
-				
-			elif $Camera/RayCast.get_collider().get_filename() == "res://Torch.tscn":
-				torch = $Camera/RayCast.get_collider()
-				light_torch()
+#			elif $Camera/RayCast.get_collider().get_filename() == "res://TorchPuzzle.tscn":
+#				emit_signal("torch_start")
+#
+#			elif $Camera/RayCast.get_collider().get_filename() == "res://Torch.tscn":
+#				torch = $Camera/RayCast.get_collider()
+#				light_torch(torch.id)
 			else:
 				static_object =  $Camera/RayCast.get_collider()
 				print(static_object)
@@ -74,6 +74,6 @@ func _physics_process(delta):
 		held_object.global_transform.origin = $Camera/HoldPosition.global_transform.origin
 		
 		
-func _light_torch(torch_num):
-	#
+func light_torch(torch_num):
+	pass
 	
