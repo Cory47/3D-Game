@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Main/Geometry/Floor.tscn" type="PackedScene" id=2]
@@ -8,9 +8,6 @@
 [ext_resource path="res://Levels/Main/Geometry/Cube.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/Main/TimeElapsed.gd" type="Script" id=7]
 [ext_resource path="res://Box.tscn" type="PackedScene" id=8]
-[ext_resource path="res://TorchPuzzle.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Interactable.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Torch.tscn" type="PackedScene" id=11]
 
 [node name="L_Main" type="Spatial"]
 script = ExtResource( 4 )
@@ -188,22 +185,3 @@ text = "Time Elapsed: __ min __ s"
 margin_top = 36.0
 margin_right = 161.0
 margin_bottom = 36.0
-
-[node name="TorchPuzzle" parent="." instance=ExtResource( 9 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.88982, 1.99143, -6.85564 )
-
-[node name="Torch" parent="TorchPuzzle" instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.6666, 7.52534, 45.9529 )
-
-[node name="Torch2" parent="TorchPuzzle" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3336, 13.5431, -22.726 )
-
-[node name="Torch3" parent="TorchPuzzle" instance=ExtResource( 11 )]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 48.7777, 11.4881, 7.11745 )
-
-[node name="Interactable" parent="." instance=ExtResource( 10 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.3998, 1.30535, -5.86649 )
-
-[connection signal="head_light" from="Player" to="TorchPuzzle" method="_on_Player_head_light"]
-[connection signal="head_reveal" from="Player" to="Interactable" method="_on_Player_head_reveal"]
-[connection signal="head_start" from="Player" to="TorchPuzzle" method="_on_Player_head_start"]
