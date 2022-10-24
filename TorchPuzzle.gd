@@ -54,4 +54,8 @@ func _on_Timer_timeout():
 
 func _on_Player_head_start():
 	start()
-	pass # Replace with function body.
+	pass
+	
+
+func _on_Player_head_light(torch_num):
+	array[torch_num].turnOn() # Replace with function body.

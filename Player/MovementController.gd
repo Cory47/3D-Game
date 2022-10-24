@@ -122,8 +122,8 @@ func _on_Head_reveal():
 
 
 
-func _on_Head_light_torch():
-	emit_signal("head_light")
+func _on_Head_light_torch(torch_num):
+	emit_signal("head_light", torch_num)
 	pass # Replace with function body.
 
 

@@ -11,4 +11,5 @@
 [node name="Sprint" type="Node" parent="." index="2"]
 script = ExtResource( 3 )
 
+[connection signal="light_torch" from="Head" to="." method="_on_Head_light_torch"]
 [connection signal="reveal" from="Head" to="." method="_on_Head_reveal"]

@@ -204,4 +204,6 @@ transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 48.7777, 
 [node name="Interactable" parent="." instance=ExtResource( 10 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.3998, 1.30535, -5.86649 )
 
+[connection signal="head_light" from="Player" to="TorchPuzzle" method="_on_Player_head_light"]
 [connection signal="head_reveal" from="Player" to="Interactable" method="_on_Player_head_reveal"]
+[connection signal="head_start" from="Player" to="TorchPuzzle" method="_on_Player_head_start"]
