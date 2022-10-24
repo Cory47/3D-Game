@@ -56,15 +56,19 @@ func _physics_process(delta):
 				held_object.collision_mask = 0
 				print(held_object)
 				
-			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_class() == "TorchPuzzle":
+			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "TorchPuzzle":
 				emit_signal("torch_start")
+				
 
-			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_class() == "Torch":
-				torch = $Camera/RayCast.get_collider()
-				light_torch(torch.id)
+			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "Torch":
+				torch = $Camera/RayCast.get_collider().get_parent()
+				print(torch)
+				light_torch(torch.getID())
 			else:
+				#var myString = $Camera/RayCast.get_collider().get_name()
 				static_object =  $Camera/RayCast.get_collider()
 				print(static_object)
+				#print(myString)
 				
 				emit_signal("reveal")
 			
