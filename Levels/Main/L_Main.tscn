@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Main/Geometry/Floor.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://Levels/Main/Materials/Marble.tres" type="Material" id=9]
 [ext_resource path="res://Levels/Main/Geometry/greek temple.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Levels/Main/Materials/Gold.tres" type="Material" id=11]
+[ext_resource path="res://Interactable.tscn" type="PackedScene" id=12]
+[ext_resource path="res://TorchPuzzle.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Torch.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpatialMaterial" id=4]
 resource_name = "Gold"
@@ -300,3 +303,22 @@ shape = SubResource( 10 )
 
 [node name="CollisionShape" type="CollisionShape" parent="greek temple/StaticBody"]
 shape = SubResource( 6 )
+
+[node name="Interactable" parent="." instance=ExtResource( 12 )]
+transform = Transform( 5.96244e-09, 0, -0.5, 0, 0.5, 0, 0.5, 0, 5.96244e-09, 17.1478, 0.814532, 0 )
+
+[node name="TorchPuzzle" parent="." instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 12.1752, 0.529396, -16.5219 )
+
+[node name="Torch" parent="TorchPuzzle" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2362, 3.77857, -0.834763 )
+
+[node name="Torch2" parent="TorchPuzzle" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.2325, -0.805115 )
+
+[node name="Torch3" parent="TorchPuzzle" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.4356, 14.1165, -0.828255 )
+
+[connection signal="head_light" from="Player" to="TorchPuzzle" method="_on_Player_head_light"]
+[connection signal="head_reveal" from="Player" to="Interactable" method="_on_Player_head_reveal"]
+[connection signal="head_start" from="Player" to="TorchPuzzle" method="_on_Player_head_start"]
