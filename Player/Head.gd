@@ -39,6 +39,19 @@ func camera_rotation() -> void:
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
-		if $Camera/RayCast.get_collider():
-			held_object =  $Camera/RayCast.get_collider()
-			print(held_object)
+		if held_object:
+			held_object.mode = RigidBody.MODE_RIGID
+			held_object.collision_mask = 1
+			held_object = null
+			
+		
+		else: 
+			if $Camera/RayCast.get_collider():
+				held_object =  $Camera/RayCast.get_collider()
+				held_object.mode = RigidBody.MODE_KINEMATIC
+				held_object.collision_mask = 0
+				print(held_object)
+				
+				
+	if held_object:
+		held_object.global_transform.origin = $Camera/HoldPosition.global_transform.origin

@@ -115,6 +115,7 @@ transform = Transform( 3.5, 0.216506, 0, -6.06218, 0.125, 0, 0, 0, 2, -16.5, 5.5
 
 [node name="Box" parent="ArenaGeometry" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5 )
+collision_layer = 2
 
 [node name="Lighting" type="Node" parent="."]
 
