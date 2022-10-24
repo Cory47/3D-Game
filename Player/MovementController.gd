@@ -63,6 +63,7 @@ func _input(event):
 		var result = space_state.intersect_ray(Vector3(0.0,0.0,0.0), Vector3(0.0,0.0,-100))
 		print(result)
 		
+		
 	
 
 
