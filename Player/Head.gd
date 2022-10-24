@@ -4,6 +4,9 @@ extends Spatial
 export(NodePath) var cam_path := NodePath("Camera")
 onready var cam: Camera = get_node(cam_path)
 
+#raycasting variables
+var held_object: Object
+
 export var mouse_sensitivity := 2.0
 export var y_limit := 90.0
 var mouse_axis := Vector2()
@@ -32,3 +35,23 @@ func camera_rotation() -> void:
 	
 	get_owner().rotation.y = rot.y
 	rotation.x = rot.x
+
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed("interact"):
+		if held_object:
+			held_object.mode = RigidBody.MODE_RIGID
+			held_object.collision_mask = 1
+			held_object = null
+			
+		
+		else: 
+			if $Camera/RayCast.get_collider():
+				held_object =  $Camera/RayCast.get_collider()
+				held_object.mode = RigidBody.MODE_KINEMATIC
+				held_object.collision_mask = 0
+				print(held_object)
+				
+				
+	if held_object:
+		held_object.global_transform.origin = $Camera/HoldPosition.global_transform.origin
