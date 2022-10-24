@@ -1,11 +1,15 @@
 extends Spatial
 
-
+signal reveal
+signal torch_start
+signal light_torch
 export(NodePath) var cam_path := NodePath("Camera")
 onready var cam: Camera = get_node(cam_path)
 
 #raycasting variables
 var held_object: Object
+var static_object: Object
+var torch: Object
 
 export var mouse_sensitivity := 2.0
 export var y_limit := 90.0
@@ -46,12 +50,30 @@ func _physics_process(delta):
 			
 		
 		else: 
-			if $Camera/RayCast.get_collider():
+			if $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_class() == "RigidBody":
 				held_object =  $Camera/RayCast.get_collider()
 				held_object.mode = RigidBody.MODE_KINEMATIC
 				held_object.collision_mask = 0
 				print(held_object)
 				
+			elif $Camera/RayCast.get_collider().get_filename() == "res://TorchPuzzle.tscn":
+				emit_signal("torch_start")
+				
+			elif $Camera/RayCast.get_collider().get_filename() == "res://Torch.tscn":
+				torch = $Camera/RayCast.get_collider()
+				light_torch()
+			else:
+				static_object =  $Camera/RayCast.get_collider()
+				print(static_object)
+				
+				emit_signal("reveal")
+			
+				
 				
 	if held_object:
 		held_object.global_transform.origin = $Camera/HoldPosition.global_transform.origin
+		
+		
+func _light_torch(torch_num):
+	#
+	

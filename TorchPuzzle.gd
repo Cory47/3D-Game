@@ -2,14 +2,16 @@ extends StaticBody
 
 var array = []
 var isComplete = false
+var in_progress = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Label3D.hide()
 	
-	for i in self.get_children():
+	for i in self.get_children().size():
 		# Adds just the torch child nodes to the array
 		if i.get_filename() == "res://Torch.tscn":
-			array.append(i)
+			self.get_children()[i].id = i
+			array.append(self.get_children()[i])
 			print(i)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -17,11 +19,13 @@ func _ready():
 		
 func start():
 	$Timer.start()
+	in_progress = true
 
 
 func end():
 	for i in array:
 		i.turnOff()
+	in_progress = false
 
 # Time trial complete
 func complete():
@@ -46,3 +50,8 @@ func _on_Timer_timeout():
 	isComplete = false
 	end()
 	
+
+
+func _on_Player_head_start():
+	start()
+	pass # Replace with function body.

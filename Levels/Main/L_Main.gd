@@ -40,3 +40,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 			if event.button_index == BUTTON_LEFT && event.pressed:
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _on_Player_head_light():
+	
+	pass # Replace with function body.
