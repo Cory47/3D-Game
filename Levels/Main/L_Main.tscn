@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Main/Geometry/Floor.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Levels/Main/Geometry/Cube.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/Main/TimeElapsed.gd" type="Script" id=7]
 [ext_resource path="res://Box.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Main/Materials/Marble.tres" type="Material" id=9]
 
 [node name="L_Main" type="Spatial"]
 script = ExtResource( 4 )
@@ -34,18 +35,23 @@ script = ExtResource( 7 )
 [node name="ArenaGeometry" type="Spatial" parent="."]
 
 [node name="Floor1" parent="ArenaGeometry" instance=ExtResource( 2 )]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0 )
 
 [node name="Wall1" parent="ArenaGeometry" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.75, -20 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 5.75, -20 )
+material/0 = ExtResource( 9 )
 
 [node name="Wall2" parent="ArenaGeometry" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.75, 20 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 5.75, 20 )
+material/0 = ExtResource( 9 )
 
 [node name="Wall3" parent="ArenaGeometry" instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 5.75, 0 )
+transform = Transform( -1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 20, 5.75, 0 )
+material/0 = ExtResource( 9 )
 
 [node name="Wall4" parent="ArenaGeometry" instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 5.75, 0 )
+transform = Transform( -1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, -20, 5.75, 0 )
+material/0 = ExtResource( 9 )
 
 [node name="Cube1" parent="ArenaGeometry" instance=ExtResource( 6 )]
 transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.25, -17.5 )

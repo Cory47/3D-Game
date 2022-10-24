@@ -1,0 +1,25 @@
+[gd_resource type="SpatialMaterial" load_steps=5 format=2]
+
+[ext_resource path="res://Levels/Main/Materials/Marble062/Marble062_REFL_2K.jpg" type="Texture" id=1]
+[ext_resource path="res://Levels/Main/Materials/Marble062/Marble062_GLOSS_2K.jpg" type="Texture" id=2]
+[ext_resource path="res://Levels/Main/Materials/Marble062/Marble062_COL_2K.jpg" type="Texture" id=3]
+[ext_resource path="res://Levels/Main/Materials/Marble062/Marble062_NRM_2K.jpg" type="Texture" id=4]
+
+[resource]
+params_diffuse_mode = 1
+albedo_texture = ExtResource( 3 )
+metallic_specular = 0.0
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 4 )
+clearcoat_enabled = true
+clearcoat = 1.0
+clearcoat_gloss = 0.5
+clearcoat_texture = ExtResource( 2 )
+refraction_enabled = true
+refraction_scale = 0.05
+refraction_texture = ExtResource( 1 )
+refraction_texture_channel = 0
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
