@@ -1,7 +1,7 @@
 extends Spatial
 
-
-# Declare member variables here. Examples:
+export var id = 0
+# Declawre member variables here. Examples:
 # var a = 2
 # var b = "text"
 
@@ -10,6 +10,8 @@ var isLit = false
 func _ready():
 	$OmniLight.hide()
 
+func getID():
+	return id
 # Receive signal from raycast
 func turnOn():
 	isLit = true
