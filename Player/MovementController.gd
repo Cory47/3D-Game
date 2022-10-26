@@ -4,6 +4,7 @@ class_name MovementController
 signal head_reveal
 signal head_start
 signal head_light
+signal head_sound
 export var gravity_multiplier := 3.0
 export var speed := 10
 export var acceleration := 8
@@ -111,22 +112,22 @@ func accelerate(delta: float) -> void:
 	
 	velocity.x = temp_vel.x
 	velocity.z = temp_vel.z
-	
+
 
 
 
 func _on_Head_reveal():
 	emit_signal("head_reveal")
 	pass # Replace with function body.
-	
-
-
 
 func _on_Head_light_torch(torch_num):
 	emit_signal("head_light", torch_num)
 	pass # Replace with function body.
 
-
 func _on_Head_torch_start():
 	emit_signal("head_start")
+	pass # Replace with function body.
+
+func _on_Head_play_sound():
+	emit_signal("head_sound")
 	pass # Replace with function body.

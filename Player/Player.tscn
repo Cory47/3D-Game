@@ -12,5 +12,6 @@
 script = ExtResource( 3 )
 
 [connection signal="light_torch" from="Head" to="." method="_on_Head_light_torch"]
+[connection signal="play_sound" from="Head" to="." method="_on_Head_play_sound"]
 [connection signal="reveal" from="Head" to="." method="_on_Head_reveal"]
 [connection signal="torch_start" from="Head" to="." method="_on_Head_torch_start"]

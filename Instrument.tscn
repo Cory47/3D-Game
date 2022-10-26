@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://do.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Instrument.gd" type="Script" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="Instrument" type="StaticBody"]
+transform = Transform( 0.667409, 0, 0, 0, 0.96538, 0, 0, 0, 1, 0, 0.237278, 0 )
+collision_layer = 3
+script = ExtResource( 2 )
+
+[node name="AudioKey" type="MeshInstance" parent="."]
+transform = Transform( 0.428301, 0, 0, 0, 0.346959, 0, 0, 0, 0.630346, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 1 )
+max_distance = 724.96
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.472031, 0, 0, 0, 0.344328, 0, 0, 0, 0.629642, 0, 0, 0 )
+shape = SubResource( 2 )

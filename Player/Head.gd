@@ -3,6 +3,7 @@ extends Spatial
 signal reveal
 signal torch_start
 signal light_torch
+signal play_sound
 export(NodePath) var cam_path := NodePath("Camera")
 onready var cam: Camera = get_node(cam_path)
 
@@ -10,6 +11,7 @@ onready var cam: Camera = get_node(cam_path)
 var held_object: Object
 var static_object: Object
 var torch: Object
+var instrument: Object
 
 export var mouse_sensitivity := 2.0
 export var y_limit := 90.0
@@ -59,19 +61,22 @@ func _physics_process(delta):
 			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "TorchPuzzle":
 				emit_signal("torch_start")
 				
-
 			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "Torch":
 				torch = $Camera/RayCast.get_collider().get_parent()
 				print(torch)
 				light_torch(torch.getID())
-			else:
+				
+			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "Interactable":
 				#var myString = $Camera/RayCast.get_collider().get_name()
 				static_object =  $Camera/RayCast.get_collider()
 				print(static_object)
 				#print(myString)
-				
 				emit_signal("reveal")
-			
+				
+			else:
+				instrument = $Camera/RayCast.get_collider()
+				print(instrument)
+				emit_signal("play_sound")
 				
 				
 	if held_object:
