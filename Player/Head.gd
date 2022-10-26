@@ -73,11 +73,10 @@ func _physics_process(delta):
 				#print(myString)
 				emit_signal("reveal")
 				
-			else:
+			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "Instrument":
 				instrument = $Camera/RayCast.get_collider()
 				print(instrument)
-				emit_signal("play_sound")
-				
+				emit_signal("play_sound") # needed for separate
 				
 	if held_object:
 		held_object.global_transform.origin = $Camera/HoldPosition.global_transform.origin
