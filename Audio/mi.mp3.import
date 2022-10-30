@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mi.mp3-079010a8eb8834b1d423e77ee187f8c7.mp3str"
+
+[deps]
+
+source_file="res://Audio/mi.mp3"
+dest_files=[ "res://.import/mi.mp3-079010a8eb8834b1d423e77ee187f8c7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,8 +1,11 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://EscapeLose.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/Main/Environment.tres" type="Environment" id=3]
 [ext_resource path="res://Levels/Main/L_Main.gd" type="Script" id=4]
+[ext_resource path="res://EscapeWin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/Main/TimeElapsed.gd" type="Script" id=7]
 [ext_resource path="res://Box.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Levels/Main/Materials/Marble.tres" type="Material" id=9]
@@ -136,63 +139,11 @@ shadow_enabled = true
 shadow_bias = 0.05
 directional_shadow_max_distance = 250.0
 
-[node name="MainMenu" type="Control" parent="."]
+[node name="EscapeWin" parent="." instance=ExtResource( 5 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
 
-[node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Column" type="VBoxContainer" parent="MainMenu/CenterContainer"]
-margin_left = 431.0
-margin_top = 284.0
-margin_right = 592.0
-margin_bottom = 316.0
-
-[node name="Title" type="Label" parent="MainMenu/CenterContainer/Column"]
-margin_right = 161.0
-margin_bottom = 14.0
-text = "GAME NAME HERE"
-align = 1
-
-[node name="Timer" type="Label" parent="MainMenu/CenterContainer/Column"]
-margin_top = 18.0
-margin_right = 161.0
-margin_bottom = 32.0
-text = "Time Elapsed: __ min __ s"
-
-[node name="Escaped" type="Control" parent="."]
+[node name="EscapeLose" parent="." instance=ExtResource( 2 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="CenterContainer" type="CenterContainer" parent="Escaped"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Column" type="VBoxContainer" parent="Escaped/CenterContainer"]
-margin_left = 431.0
-margin_top = 282.0
-margin_right = 592.0
-margin_bottom = 318.0
-
-[node name="Title" type="Label" parent="Escaped/CenterContainer/Column"]
-margin_right = 161.0
-margin_bottom = 14.0
-text = "Success! You've escaped!"
-
-[node name="Timer" type="Label" parent="Escaped/CenterContainer/Column"]
-margin_top = 18.0
-margin_right = 161.0
-margin_bottom = 32.0
-text = "Time Elapsed: __ min __ s"
-
-[node name="TryAgain" type="HBoxContainer" parent="Escaped/CenterContainer/Column"]
-margin_top = 36.0
-margin_right = 161.0
-margin_bottom = 36.0
 
 [node name="greek temple" parent="." instance=ExtResource( 10 )]
 transform = Transform( 15, 0, 0, 0, 10, 0, 0, 0, 15, -1.09946, 9.01433, 0.751377 )
@@ -282,7 +233,15 @@ shape = SubResource( 10 )
 [node name="CollisionShape" type="CollisionShape" parent="greek temple2/StaticBody"]
 shape = SubResource( 6 )
 
+[node name="door" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1.5, 0, 2.29967e-07, 0, 1.935, 0, -2.26494e-07, 0, -1.523, 14.5437, 0.412154, -1.42105 )
+
+[node name="door2" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1.5, 1.69163e-07, 0, -1.31134e-07, -1.935, 0, 0, 0, 1.523, 14.5686, 3.9887, 2.88602 )
+
 [connection signal="head_light" from="Player" to="TorchPuzzle" method="_on_Player_head_light"]
 [connection signal="head_reveal" from="Player" to="Interactable" method="_on_Player_head_reveal"]
+[connection signal="head_reveal" from="Player" to="door" method="_on_Player_head_reveal"]
+[connection signal="head_reveal" from="Player" to="door2" method="_on_Player_head_reveal"]
 [connection signal="head_start" from="Player" to="TorchPuzzle" method="_on_Player_head_start"]
 [connection signal="area_entered" from="Pedestal" to="PedestalPuzzle" method="_on_Pedestal_area_entered"]
