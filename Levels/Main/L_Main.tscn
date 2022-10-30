@@ -234,14 +234,12 @@ shape = SubResource( 10 )
 shape = SubResource( 6 )
 
 [node name="door" parent="." instance=ExtResource( 6 )]
-transform = Transform( -1.5, 0, 2.29967e-07, 0, 1.935, 0, -2.26494e-07, 0, -1.523, 14.5437, 0.412154, -1.42105 )
+transform = Transform( -6.55671e-08, 0, -1.523, 0, 1.935, 0, 1.5, 0, -6.65724e-08, 14.5437, 0.412154, -1.42105 )
 
 [node name="door2" parent="." instance=ExtResource( 6 )]
-transform = Transform( -1.5, 1.69163e-07, 0, -1.31134e-07, -1.935, 0, 0, 0, 1.523, 14.5686, 3.9887, 2.88602 )
+transform = Transform( 6.55671e-08, 7.39435e-15, -1.523, 1.31134e-07, -1.935, 0, -1.5, -1.69163e-07, -6.65724e-08, 14.5686, 3.9887, 2.88602 )
 
-[connection signal="head_light" from="Player" to="TorchPuzzle" method="_on_Player_head_light"]
 [connection signal="head_reveal" from="Player" to="Interactable" method="_on_Player_head_reveal"]
 [connection signal="head_reveal" from="Player" to="door" method="_on_Player_head_reveal"]
 [connection signal="head_reveal" from="Player" to="door2" method="_on_Player_head_reveal"]
-[connection signal="head_start" from="Player" to="TorchPuzzle" method="_on_Player_head_start"]
 [connection signal="area_entered" from="Pedestal" to="PedestalPuzzle" method="_on_Pedestal_area_entered"]
