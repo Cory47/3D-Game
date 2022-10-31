@@ -6,6 +6,9 @@
 
 [node name="greek temple" instance=ExtResource( 1 )]
 
+[node name="Cube001" parent="." index="0"]
+visible = false
+
 [node name="Cylinder" parent="." index="1"]
 transform = Transform( 0.0732366, 0, 0, 0, 1.00656, 0, 0, 0, 0.0732366, 0.599355, -0.506495, -0.40353 )
 material/0 = ExtResource( 3 )
