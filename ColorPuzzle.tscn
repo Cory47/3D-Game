@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ColorPuzzle.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="BoxShape" id=4]
+
+[node name="ColorPuzzle" type="StaticBody"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0 )
+collision_layer = 3
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="Riddle" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0.5, 0 )
+mesh = SubResource( 2 )
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2.41473, 0 )
+modulate = Color( 0.156863, 0.92549, 0.0392157, 1 )
+text = "\"Diameter, Goddess of Growth, Apollo, God of the Sun, Poseidon, God of the Ocean, Aphrodite, Goddess of Love\"
+"
+autowrap = true
+width = 250.0
+
+[node name="ChessBoard" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.75, 0, 0, 0, 1, 2, -0.25, 0 )
+mesh = SubResource( 3 )
+
+[node name="Hint" type="Label3D" parent="ChessBoard"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11847, 0 )
+text = "G6
+"
+
+[node name="ChessBoardCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 2, -0.5, 0 )
+shape = SubResource( 4 )
