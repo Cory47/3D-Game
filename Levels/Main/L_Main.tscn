@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GreekPedestal.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://NoteBlock2.gd" type="Script" id=17]
 [ext_resource path="res://Levels/Main/NoteCheck.gd" type="Script" id=18]
 [ext_resource path="res://NoteBlock3.gd" type="Script" id=19]
+[ext_resource path="res://door.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Environment" id=14]
 background_color = Color( 0, 0, 0, 0 )
@@ -480,6 +481,9 @@ finalNote = 2
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0123825, -0.311122, 14.5596 )
 script = ExtResource( 19 )
 finalNote = 3
+
+[node name="door" parent="." instance=ExtResource( 20 )]
+transform = Transform( -1.31134e-07, 0, 2, 0, 2.072, 0, -3, 0, -8.74228e-08, 13.2318, 0.502395, 2.84085 )
 
 [connection signal="head_light" from="Player" to="TorchPuzzle" method="_on_Player_head_light"]
 [connection signal="head_reveal" from="Player" to="Interactable" method="_on_Player_head_reveal"]
