@@ -46,7 +46,7 @@ func end():
 
 # Time trial complete
 func complete():
-	$Label3D.set_text("Clue 2")
+	$Label3D.set_text("C")
 	$Label3D.show()
 	$TimerPedastal/TimerLabel.hide()
 	

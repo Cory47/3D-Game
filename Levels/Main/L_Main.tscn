@@ -172,6 +172,11 @@ margin_top = 219.0
 margin_right = 570.0
 margin_bottom = 289.0
 
+[node name="Crosshair" type="Line2D" parent="Player"]
+points = PoolVector2Array( 503, 290, 507, 290 )
+width = 3.0
+default_color = Color( 0.92549, 0.933333, 0.960784, 1 )
+
 [node name="Lighting@SpotLight1" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.85547, 11.3411, -5.53346 )
 light_color = Color( 0.905882, 0.784314, 0.117647, 1 )

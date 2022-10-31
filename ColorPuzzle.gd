@@ -26,7 +26,7 @@ func _ready():
 func isComplete():
 	inProgress = false
 	$Label3D.hide()
-	$ChessBoard/Hint.hide()
+	$ChessBoard/Hint.show()
 
 
 func _on_Player_click_block(block_num):
@@ -35,14 +35,18 @@ func _on_Player_click_block(block_num):
 		if block_num == 0 && !greenHit:
 			print("1 block")
 			greenHit = true
+			array[block_num].turnOn()
 		elif block_num == 1 && greenHit:
 			print("2 Blocks");
 			yellowHit = true
+			array[block_num].turnOn()
 		elif block_num == 2 && yellowHit:
 			print("3 Blocks");
 			blueHit = true
+			array[block_num].turnOn()
 		elif block_num == 3 && blueHit:
 			pinkHit = true
+			array[block_num].turnOn()
 			print("Is Complete is run")
 			isComplete()
 		else:
@@ -50,3 +54,5 @@ func _on_Player_click_block(block_num):
 			greenHit = false
 			pinkHit = false
 			yellowHit = false
+			for i in array:
+				i.turnOff()
