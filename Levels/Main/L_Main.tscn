@@ -151,16 +151,17 @@ stream = ExtResource( 5 )
 autoplay = true
 
 [node name="ProgressBar" type="ProgressBar" parent="Player"]
+visible = false
 margin_left = 313.0
 margin_top = 571.0
 margin_right = 673.0
 margin_bottom = 585.0
 
 [node name="TimeElapsed" type="Label" parent="Player"]
-margin_left = 827.0
-margin_top = 550.0
-margin_right = 1003.0
-margin_bottom = 581.0
+margin_left = 27.0
+margin_top = 22.0
+margin_right = 203.0
+margin_bottom = 53.0
 rect_pivot_offset = Vector2( -102, -12 )
 text = "Clues Found: 0/0
 "
@@ -481,7 +482,14 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0123
 script = ExtResource( 19 )
 finalNote = 3
 
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.8201, 0 )
+text = "Easter Egg"
+
 [connection signal="head_light" from="Player" to="TorchPuzzle" method="_on_Player_head_light"]
 [connection signal="head_reveal" from="Player" to="Interactable" method="_on_Player_head_reveal"]
 [connection signal="head_start" from="Player" to="TorchPuzzle" method="_on_Player_head_start"]
+[connection signal="play_note" from="Player" to="NotePuzzle/NoteBlock" method="_on_Player_play_note"]
+[connection signal="play_note2" from="Player" to="NotePuzzle/NoteBlock2" method="_on_Player_play_note2"]
+[connection signal="play_note3" from="Player" to="NotePuzzle/NoteBlock3" method="_on_Player_play_note3"]
 [connection signal="area_entered" from="Pedestal" to="PedestalPuzzle" method="_on_Pedestal_area_entered"]
