@@ -143,7 +143,6 @@ directional_shadow_max_distance = 250.0
 visible = false
 
 [node name="EscapeLose" parent="." instance=ExtResource( 2 )]
-visible = false
 
 [node name="greek temple" parent="." instance=ExtResource( 10 )]
 transform = Transform( 15, 0, 0, 0, 10, 0, 0, 0, 15, -1.09946, 9.01433, 0.751377 )
@@ -240,6 +239,4 @@ transform = Transform( -6.55671e-08, 0, -1.523, 0, 1.935, 0, 1.5, 0, -6.65724e-0
 transform = Transform( 6.55671e-08, 7.39435e-15, -1.523, 1.31134e-07, -1.935, 0, -1.5, -1.69163e-07, -6.65724e-08, 14.5686, 3.9887, 2.88602 )
 
 [connection signal="head_reveal" from="Player" to="Interactable" method="_on_Player_head_reveal"]
-[connection signal="head_reveal" from="Player" to="door" method="_on_Player_head_reveal"]
-[connection signal="head_reveal" from="Player" to="door2" method="_on_Player_head_reveal"]
 [connection signal="area_entered" from="Pedestal" to="PedestalPuzzle" method="_on_Pedestal_area_entered"]

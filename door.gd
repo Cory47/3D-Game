@@ -16,12 +16,13 @@ func _ready():
 #	pass
 var state = "closed"
 
-
-func _on_Player_head_reveal():
-	print("It made it here")
-	if state == "open":
-		pass
-	elif state == "" or state == "closed":
-		$OpenDoor.play("RESET")
-		state = "closed"
-	pass # Replace with function body.
+# placeholder signal
+#func _on_Player_head_reveal():
+#	if state == "open":
+#		pass
+#	elif state == "" or state == "closed":
+#		yield(get_tree().create_timer(2), "timeout")
+#		$OpenDoor.play("RESET")
+#		$hinge/DoorOpeningAudio.play()
+#		state = "open"
+#	pass # Replace with function body.

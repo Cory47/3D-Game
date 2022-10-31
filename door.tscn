@@ -57,6 +57,7 @@ shape = SubResource( 4 )
 [node name="DoorOpeningAudio" type="AudioStreamPlayer3D" parent="hinge"]
 transform = Transform( 1, 0, -3.34499e-08, 0, 1, 0, 3.34499e-08, 0, 1, 0.691793, 0.908493, 3.02392e-08 )
 stream = ExtResource( 2 )
+max_distance = 3267.3
 
 [node name="OpenDoor" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
