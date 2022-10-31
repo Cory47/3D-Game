@@ -1,6 +1,7 @@
 extends StaticBody
 
 var riddle3 = "riddle3"
+signal victory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,4 +21,5 @@ func _on_Player_head_reveal():
 
 func _on_Pedestal_area_entered(area):
 	reveal()
+	emit_signal("victory")
 	print("collision working")

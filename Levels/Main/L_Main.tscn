@@ -14,7 +14,7 @@
 [ext_resource path="res://Interactable.tscn" type="PackedScene" id=12]
 [ext_resource path="res://TorchPuzzle.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Torch.tscn" type="PackedScene" id=14]
-[ext_resource path="res://pedestal.gd" type="Script" id=15]
+[ext_resource path="res://Torch.gd" type="Script" id=15]
 [ext_resource path="res://NoteBlock.tscn" type="PackedScene" id=16]
 [ext_resource path="res://NoteBlock2.gd" type="Script" id=17]
 [ext_resource path="res://Levels/Main/NoteCheck.gd" type="Script" id=18]
@@ -153,17 +153,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0149688, 0.342421, -0.41965
 stream = ExtResource( 5 )
 autoplay = true
 
-[node name="ProgressBar" type="ProgressBar" parent="Player"]
-margin_left = 313.0
-margin_top = 571.0
-margin_right = 673.0
-margin_bottom = 585.0
-
 [node name="TimeElapsed" type="Label" parent="Player"]
-margin_left = 827.0
-margin_top = 550.0
-margin_right = 1003.0
-margin_bottom = 581.0
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 182.0
+margin_bottom = 36.0
 rect_pivot_offset = Vector2( -102, -12 )
 text = "Clues Found: 0/0
 "
@@ -381,35 +375,14 @@ shape = SubResource( 10 )
 [node name="CollisionShape" type="CollisionShape" parent="greek temple/StaticBody"]
 shape = SubResource( 6 )
 
-[node name="Interactable" parent="." instance=ExtResource( 12 )]
-transform = Transform( 5.96244e-09, 0, -0.5, 0, 0.5, 0, 0.5, 0, 5.96244e-09, 17.1478, 0.814532, 0 )
-
-[node name="TorchPuzzle" parent="." instance=ExtResource( 13 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 12.1752, 0.529396, -16.5219 )
-
-[node name="Torch" parent="TorchPuzzle" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2362, 3.77857, -0.834763 )
-
-[node name="Torch2" parent="TorchPuzzle" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.2325, -0.805115 )
-
-[node name="Torch3" parent="TorchPuzzle" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.4356, 14.1165, -0.828255 )
-
 [node name="Pedestal" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65675, 1.42826, 0.825756 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27062, 1.42826, 0.825756 )
 collision_layer = 4
 collision_mask = 5
 
 [node name="PedestalCollision" type="CollisionShape" parent="Pedestal"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40467, 1.20992, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4455, 1.20992, 0 )
 shape = SubResource( 11 )
-
-[node name="PedestalPuzzle" parent="." instance=ExtResource( 12 )]
-transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -14.3773, 0.812197, 2.7142 )
-collision_layer = 7
-collision_mask = 5
-script = ExtResource( 15 )
 
 [node name="PedestalItem" parent="." instance=ExtResource( 8 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 36.7182, 2.53594, 0.852377 )
@@ -485,13 +458,30 @@ script = ExtResource( 19 )
 finalNote = 3
 
 [node name="door" parent="." instance=ExtResource( 20 )]
-transform = Transform( -1.31134e-07, 0, 2, 0, 2.072, 0, -3, 0, -8.74228e-08, 13.2318, 0.502395, 2.84085 )
-
-[node name="EscapeLose" parent="." instance=ExtResource( 21 )]
+transform = Transform( -1.31134e-07, 0, 2, 0, 2.072, 0, -3, 0, -8.74228e-08, 13.2318, 0.502395, 2.92827 )
 
 [node name="EscapeWin" parent="." instance=ExtResource( 22 )]
+visible = false
 
-[connection signal="head_light" from="Player" to="TorchPuzzle" method="_on_Player_head_light"]
-[connection signal="head_reveal" from="Player" to="Interactable" method="_on_Player_head_reveal"]
-[connection signal="head_start" from="Player" to="TorchPuzzle" method="_on_Player_head_start"]
-[connection signal="area_entered" from="Pedestal" to="PedestalPuzzle" method="_on_Pedestal_area_entered"]
+[node name="EscapeLose" parent="." instance=ExtResource( 21 )]
+visible = false
+
+[node name="ChessPuzzle" parent="." instance=ExtResource( 12 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -14.5337, 0.833512, 1.5996 )
+
+[node name="TorchPuzzle" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0.5, 12.436 )
+script = ExtResource( 15 )
+id = 0
+
+[node name="Torch" parent="TorchPuzzle" instance=ExtResource( 14 )]
+transform = Transform( 2, 0, -2.84217e-14, 0, 2, 0, 2.84217e-14, 0, 2, -3.24346, 5.25487, -0.0440502 )
+
+[connection signal="head_reveal" from="Player" to="ChessPuzzle" method="_on_Player_head_reveal"]
+[connection signal="play_note" from="Player" to="NotePuzzle/NoteBlock" method="_on_Player_play_note"]
+[connection signal="play_note2" from="Player" to="NotePuzzle/NoteBlock2" method="_on_Player_play_note2"]
+[connection signal="play_note3" from="Player" to="NotePuzzle/NoteBlock3" method="_on_Player_play_note3"]
+[connection signal="lose_game" from="Player/TimeElapsed" to="EscapeLose" method="_on_TimeElapsed_lose_game"]
+[connection signal="area_entered" from="Pedestal" to="EscapeWin" method="_on_Pedestal_area_entered"]
+[connection signal="solve_notes" from="NotePuzzle" to="door" method="_on_NotePuzzle_solve_notes"]
+[connection signal="game_win" from="EscapeWin" to="EscapeLose" method="_on_EscapeWin_game_win"]

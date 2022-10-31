@@ -8,7 +8,7 @@ export var id = 0
 var isLit = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$OmniLight.hide()
+	turnOff()
 
 func getID():
 	return id

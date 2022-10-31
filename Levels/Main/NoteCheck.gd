@@ -19,6 +19,5 @@ func _process(delta):
 		if $NoteBlock2.right_note:
 			if $NoteBlock3.right_note:
 				emit_signal("solve_notes")
-				print("you win")
 		
 	pass

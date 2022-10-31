@@ -58,7 +58,9 @@ func _physics_process(delta):
 				held_object.mode = RigidBody.MODE_KINEMATIC
 				held_object.collision_mask = 0
 				print(held_object)
-				
+			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "ChessPuzzle":
+				print("Chess Raycast Test")
+				emit_signal("reveal")
 			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "TorchPuzzle":
 				emit_signal("torch_start")
 				

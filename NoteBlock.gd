@@ -4,7 +4,7 @@ extends StaticBody
 # Declare member variables here. Examples:
 # var a = 2
 var note = 0
-export var finalNote = 1
+export var finalNote = 4
 var right_note = false
 var pitch = ["A","B","C","D","E","F"]
 
