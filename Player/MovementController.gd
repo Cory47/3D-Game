@@ -4,6 +4,9 @@ class_name MovementController
 signal head_reveal
 signal head_start
 signal head_light
+signal play_note
+signal play_note2
+signal play_note3
 export var gravity_multiplier := 3.0
 export var speed := 10
 export var acceleration := 8
@@ -129,4 +132,19 @@ func _on_Head_light_torch(torch_num):
 
 func _on_Head_torch_start():
 	emit_signal("head_start")
+	pass # Replace with function body.
+
+
+func _on_Head_play_note():
+	emit_signal("play_note")
+	pass # Replace with function body.
+
+
+func _on_Head_play_note2():
+	emit_signal("play_note2")
+	pass # Replace with function body.
+
+
+func _on_Head_play_note3():
+	emit_signal("play_note3")
 	pass # Replace with function body.

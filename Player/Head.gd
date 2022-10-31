@@ -3,6 +3,9 @@ extends Spatial
 signal reveal
 signal torch_start
 signal light_torch
+signal play_note
+signal play_note2
+signal play_note3
 export(NodePath) var cam_path := NodePath("Camera")
 onready var cam: Camera = get_node(cam_path)
 
@@ -64,11 +67,21 @@ func _physics_process(delta):
 				torch = $Camera/RayCast.get_collider().get_parent()
 				print(torch)
 				light_torch(torch.getID())
+			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "NoteBlock":
+				emit_signal("play_note")
+				print("note1")
+			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "NoteBlock2":
+				emit_signal("play_note2")
+				print("note2")
+			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "NoteBlock3":
+				emit_signal("play_note3")
+				print("note3")
+				
 			else:
 				#var myString = $Camera/RayCast.get_collider().get_name()
 				static_object =  $Camera/RayCast.get_collider()
 				print(static_object)
-				#print(myString)
+				
 				
 				emit_signal("reveal")
 			
