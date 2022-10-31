@@ -2,11 +2,15 @@
 
 importer="wavefront_obj"
 type="Mesh"
-valid=false
+path="res://.import/VASE_STATUE.obj-9b0ee46760c35f20811deebff1a697f3.mesh"
 
 [deps]
 
+files=[ "res://.import/VASE_STATUE.obj-9b0ee46760c35f20811deebff1a697f3.mesh" ]
+
 source_file="res://Levels/Main/Geometry/VASE_STATUE.obj"
+dest_files=[ "res://.import/VASE_STATUE.obj-9b0ee46760c35f20811deebff1a697f3.mesh", "res://.import/VASE_STATUE.obj-9b0ee46760c35f20811deebff1a697f3.mesh" ]
+
 [params]
 
 generate_tangents=true

@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/Marble062_COL_2K.jpg-83231699392c79158d261063e861edcf.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Levels/Main/Geometry/Marble062_COL_2K.jpg"
+dest_files=[ "res://.import/Marble062_COL_2K.jpg-83231699392c79158d261063e861edcf.stex" ]
+
 [params]
 
 compress/mode=0

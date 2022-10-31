@@ -2,11 +2,15 @@
 
 importer="wavefront_obj"
 type="Mesh"
-valid=false
+path="res://.import/uploads_files_3425113_VenuDeMilo.obj-c0056ff3fd63d93a175aa9a396af124d.mesh"
 
 [deps]
 
+files=[ "res://.import/uploads_files_3425113_VenuDeMilo.obj-c0056ff3fd63d93a175aa9a396af124d.mesh" ]
+
 source_file="res://Levels/Main/Geometry/uploads_files_3425113_VenuDeMilo.obj"
+dest_files=[ "res://.import/uploads_files_3425113_VenuDeMilo.obj-c0056ff3fd63d93a175aa9a396af124d.mesh", "res://.import/uploads_files_3425113_VenuDeMilo.obj-c0056ff3fd63d93a175aa9a396af124d.mesh" ]
+
 [params]
 
 generate_tangents=true

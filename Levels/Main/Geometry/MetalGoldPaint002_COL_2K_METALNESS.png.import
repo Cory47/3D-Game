@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/MetalGoldPaint002_COL_2K_METALNESS.png-6d8dcca274ba716f9d701437099af517.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Levels/Main/Geometry/MetalGoldPaint002_COL_2K_METALNESS.png"
+dest_files=[ "res://.import/MetalGoldPaint002_COL_2K_METALNESS.png-6d8dcca274ba716f9d701437099af517.stex" ]
+
 [params]
 
 compress/mode=0
