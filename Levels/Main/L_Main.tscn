@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GreekPedestal.tscn" type="PackedScene" id=2]
@@ -15,8 +15,6 @@
 [ext_resource path="res://TorchPuzzle.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Torch.tscn" type="PackedScene" id=14]
 [ext_resource path="res://pedestal.gd" type="Script" id=15]
-[ext_resource path="res://ColorBlock.tscn" type="PackedScene" id=16]
-[ext_resource path="res://ColorPuzzle.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Environment" id=14]
 background_color = Color( 0, 0, 0, 0 )
@@ -455,21 +453,6 @@ shape = SubResource( 15 )
 
 [node name="Chessboard" parent="." instance=ExtResource( 6 )]
 transform = Transform( -6.55671e-08, 1, 0, -1.5, -4.37114e-08, 0, 0, 0, 1.5, -14.8843, 3.46112, 3.71353 )
-
-[node name="ColorPuzzle" parent="." instance=ExtResource( 17 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.114, 0.892241, 11.0958 )
-
-[node name="ColorBlock" parent="ColorPuzzle" instance=ExtResource( 16 )]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 3.12408, 3.17567, -5.40036 )
-
-[node name="ColorBlock2" parent="ColorPuzzle" instance=ExtResource( 16 )]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -4.41572, 2.06439, -6.10023 )
-
-[node name="ColorBlock3" parent="ColorPuzzle" instance=ExtResource( 16 )]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.66251, 2.77064, 0 )
-
-[node name="ColorBlock4" parent="ColorPuzzle" instance=ExtResource( 16 )]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 2.57964, -10.0096 )
 
 [connection signal="head_light" from="Player" to="TorchPuzzle" method="_on_Player_head_light"]
 [connection signal="head_reveal" from="Player" to="Interactable" method="_on_Player_head_reveal"]
