@@ -160,11 +160,6 @@ text = "Clues Found: 0/0
 "
 script = ExtResource( 7 )
 
-[node name="Crosshair" type="Line2D" parent="Player"]
-points = PoolVector2Array( 501, 305, 505, 305 )
-width = 3.5
-default_color = Color( 0.94902, 0.952941, 0.964706, 1 )
-
 [node name="Lighting" type="Node" parent="."]
 
 [node name="SpotLight1" type="SpotLight" parent="Lighting"]
