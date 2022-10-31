@@ -8,16 +8,16 @@ export var id = 0
 var isLit = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	turnOff()
+	$Torch/OmniLight.hide()
 
 func getID():
 	return id
 
 func turnOn():
 	isLit = true
-	$OmniLight.show()
+	$Torch/OmniLight.show()
 
 func turnOff():
 	isLit = false
-	$OmniLight.hide()
+	$Torch/OmniLight.hide()
 

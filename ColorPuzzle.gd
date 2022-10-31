@@ -18,30 +18,35 @@ func _ready():
 		# Adds just the ColorBlock child nodes to the array
 		if i.get_filename() == "res://ColorBlock.tscn":
 			i.setBlockColor(counter)
+			i.id = counter
 			array.append(i)
 			counter = counter + 1
-			
-		
-
-func hit_block(block_num):
-	if inProgress:
-		if block_num == 0 && !greenHit:
-			greenHit = true
-		elif block_num == 1 && greenHit:
-			yellowHit = true
-		elif block_num == 2 && yellowHit:
-			blueHit = true
-		elif block_num == 3 && blueHit:
-			pinkHit = true
-			isComplete()
-		else:
-			blueHit = false
-			greenHit = false
-			pinkHit = false
-			yellowHit = false
 		
 
 func isComplete():
 	inProgress = false
 	$Label3D.hide()
 	$ChessBoard/Hint.hide()
+
+
+func _on_Player_click_block(block_num):
+	if inProgress:
+		
+		if block_num == 0 && !greenHit:
+			print("1 block")
+			greenHit = true
+		elif block_num == 1 && greenHit:
+			print("2 Blocks");
+			yellowHit = true
+		elif block_num == 2 && yellowHit:
+			print("3 Blocks");
+			blueHit = true
+		elif block_num == 3 && blueHit:
+			pinkHit = true
+			print("Is Complete is run")
+			isComplete()
+		else:
+			blueHit = false
+			greenHit = false
+			pinkHit = false
+			yellowHit = false

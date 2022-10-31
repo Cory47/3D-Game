@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GreekPedestal.tscn" type="PackedScene" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://Interactable.tscn" type="PackedScene" id=12]
 [ext_resource path="res://TorchPuzzle.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Torch.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Torch.gd" type="Script" id=15]
 [ext_resource path="res://NoteBlock.tscn" type="PackedScene" id=16]
 [ext_resource path="res://NoteBlock2.gd" type="Script" id=17]
 [ext_resource path="res://Levels/Main/NoteCheck.gd" type="Script" id=18]
@@ -22,6 +21,8 @@
 [ext_resource path="res://door.tscn" type="PackedScene" id=20]
 [ext_resource path="res://EscapeLose.tscn" type="PackedScene" id=21]
 [ext_resource path="res://EscapeWin.tscn" type="PackedScene" id=22]
+[ext_resource path="res://ColorBlock.tscn" type="PackedScene" id=23]
+[ext_resource path="res://ColorPuzzle.tscn" type="PackedScene" id=24]
 
 [sub_resource type="Environment" id=14]
 background_color = Color( 0, 0, 0, 0 )
@@ -471,13 +472,41 @@ transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -
 
 [node name="TorchPuzzle" parent="." instance=ExtResource( 13 )]
 transform = Transform( -0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0.5, 12.436 )
-script = ExtResource( 15 )
-id = 0
 
 [node name="Torch" parent="TorchPuzzle" instance=ExtResource( 14 )]
-transform = Transform( 2, 0, -2.84217e-14, 0, 2, 0, 2.84217e-14, 0, 2, -3.24346, 5.25487, -0.0440502 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -3.77151, 5.24386, 0.991777 )
 
+[node name="Torch2" parent="TorchPuzzle" instance=ExtResource( 14 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -15.5038, 6.74114, 14.0127 )
+
+[node name="Torch3" parent="TorchPuzzle" instance=ExtResource( 14 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 13.5658, 6.74114, 14.0127 )
+
+[node name="Torch4" parent="TorchPuzzle" instance=ExtResource( 14 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -15.2921, 6.74114, 32.1123 )
+
+[node name="Torch5" parent="TorchPuzzle" instance=ExtResource( 14 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 14.0074, 6.74114, 32.1123 )
+
+[node name="ColorPuzzle" parent="." instance=ExtResource( 24 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.82861, 0.5, -10.9972 )
+
+[node name="ColorBlock" parent="ColorPuzzle" instance=ExtResource( 23 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -23.1851, 5.04546, -2.10576 )
+
+[node name="ColorBlock2" parent="ColorPuzzle" instance=ExtResource( 23 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 20.9691, 5.04546, -2.26199 )
+
+[node name="ColorBlock3" parent="ColorPuzzle" instance=ExtResource( 23 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -9.91018, 5.04546, -2.22057 )
+
+[node name="ColorBlock4" parent="ColorPuzzle" instance=ExtResource( 23 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 9.7685, 5.04546, -2.16198 )
+
+[connection signal="click_block" from="Player" to="ColorPuzzle" method="_on_Player_click_block"]
+[connection signal="head_light" from="Player" to="TorchPuzzle" method="_on_Player_head_light"]
 [connection signal="head_reveal" from="Player" to="ChessPuzzle" method="_on_Player_head_reveal"]
+[connection signal="head_start" from="Player" to="TorchPuzzle" method="_on_Player_head_start"]
 [connection signal="play_note" from="Player" to="NotePuzzle/NoteBlock" method="_on_Player_play_note"]
 [connection signal="play_note2" from="Player" to="NotePuzzle/NoteBlock2" method="_on_Player_play_note2"]
 [connection signal="play_note3" from="Player" to="NotePuzzle/NoteBlock3" method="_on_Player_play_note3"]

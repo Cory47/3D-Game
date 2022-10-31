@@ -7,6 +7,7 @@ signal head_light
 signal play_note
 signal play_note2
 signal play_note3
+signal click_block
 export var gravity_multiplier := 3.0
 export var speed := 10
 export var acceleration := 8
@@ -148,3 +149,7 @@ func _on_Head_play_note2():
 func _on_Head_play_note3():
 	emit_signal("play_note3")
 	pass # Replace with function body.
+
+
+func _on_Head_click_block(block_num):
+	emit_signal("click_block", block_num)

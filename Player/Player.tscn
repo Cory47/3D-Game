@@ -11,6 +11,7 @@
 [node name="Sprint" type="Node" parent="." index="2"]
 script = ExtResource( 3 )
 
+[connection signal="click_block" from="Head" to="." method="_on_Head_click_block"]
 [connection signal="light_torch" from="Head" to="." method="_on_Head_light_torch"]
 [connection signal="play_note" from="Head" to="." method="_on_Head_play_note"]
 [connection signal="play_note2" from="Head" to="." method="_on_Head_play_note2"]

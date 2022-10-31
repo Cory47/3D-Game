@@ -4,7 +4,7 @@ extends Spatial
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var id = 0
 
 # Called when the node enters the scene tree for the first time.
 #func _ready():
@@ -27,6 +27,9 @@ func setBlockColor(colorNum):
 	else:
 		newMaterial.albedo_color = Color(255, 255, 255, 1.0)
 	$MeshInstance.material_override = newMaterial
+	
+func getID():
+	return id
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

@@ -3,6 +3,7 @@ extends Spatial
 signal reveal
 signal torch_start
 signal light_torch
+signal click_block
 signal play_note
 signal play_note2
 signal play_note3
@@ -13,6 +14,7 @@ onready var cam: Camera = get_node(cam_path)
 var held_object: Object
 var static_object: Object
 var torch: Object
+var block: Object
 
 export var mouse_sensitivity := 2.0
 export var y_limit := 90.0
@@ -79,6 +81,15 @@ func _physics_process(delta):
 				emit_signal("play_note3")
 				print("note3")
 				
+			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "ColorPuzzle":
+				emit_signal("color_start")
+			elif $Camera/RayCast.get_collider() and $Camera/RayCast.get_collider().get_name() == "ColorBlock":
+				print("Raycast is triggering")
+				block = $Camera/RayCast.get_collider().get_parent()
+				print(block)
+				print(block.getID())
+				click_block(block.getID())
+				
 			else:
 				#var myString = $Camera/RayCast.get_collider().get_name()
 				static_object =  $Camera/RayCast.get_collider()
@@ -95,5 +106,8 @@ func _physics_process(delta):
 		
 func light_torch(torch_num):
 	emit_signal("light_torch", torch_num)
+	
+func click_block(block_num):
+	emit_signal("click_block", block_num)
 	
 	
