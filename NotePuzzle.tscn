@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/Main/NoteCheck.gd" type="Script" id=1]
+[ext_resource path="res://NoteBlock3.gd" type="Script" id=2]
+[ext_resource path="res://NoteBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://NoteBlock2.gd" type="Script" id=4]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="NotePuzzle" type="StaticBody" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.0717, 2.61178, -2.75388 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NotePuzzle"]
+shape = SubResource( 1 )
+
+[node name="NoteBlock" parent="NotePuzzle" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="NoteBlock2" parent="NotePuzzle" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0626144, 5.10371, 6.86831 )
+script = ExtResource( 4 )
+finalNote = 2
+
+[node name="NoteBlock3" parent="NotePuzzle" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0123825, -0.311122, 14.5596 )
+script = ExtResource( 2 )
+finalNote = 3
