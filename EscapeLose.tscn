@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://LoseAudio.mp3" type="AudioStream" id=1]
+[ext_resource path="res://LoseImage.webp" type="Texture" id=2]
+[ext_resource path="res://PngItem_352354.png" type="Texture" id=3]
+[ext_resource path="res://EscapeLose.gd" type="Script" id=4]
+[ext_resource path="res://ThunderboltRegular-8MV8M.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[node name="EscapeLose" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0941176, 0.0705882, 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.470588, 0.470588, 0.470588, 1 )
+position = Vector2( 508, 139 )
+scale = Vector2( 0.755269, 0.671067 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
+position = Vector2( 512.5, 299 )
+scale = Vector2( 0.129314, 0.0750853 )
+texture = ExtResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Column" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 379.0
+margin_top = 278.0
+margin_right = 644.0
+margin_bottom = 322.0
+
+[node name="Title" type="Label" parent="CenterContainer/Column"]
+margin_right = 265.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "game over..."
+align = 1
+
+[node name="TryAgain" type="HBoxContainer" parent="CenterContainer/Column"]
+margin_top = 44.0
+margin_right = 265.0
+margin_bottom = 44.0
+
+[node name="EscapeLostAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )

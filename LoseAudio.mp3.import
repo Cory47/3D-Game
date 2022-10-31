@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/LoseAudio.mp3-b1300fbbe177755441c8783373619b19.mp3str"
+
+[deps]
+
+source_file="res://LoseAudio.mp3"
+dest_files=[ "res://.import/LoseAudio.mp3-b1300fbbe177755441c8783373619b19.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
